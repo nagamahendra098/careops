@@ -14,15 +14,15 @@ function App() {
 
   // ---------------- LOAD ALL DATA ----------------
   const loadData = () => {
-    fetch("http://127.0.0.1:8000/dashboard")
+    fetch("https://careops-mf4t.onrender.com/dashboard")
       .then(res => res.json())
       .then(setDashboard);
 
-    fetch("http://127.0.0.1:8000/conversations")
+    fetch("https://careops-mf4t.onrender.com/conversations")
       .then(res => res.json())
       .then(setConversations);
 
-    fetch("http://127.0.0.1:8000/calendar")
+    fetch("https://careops-mf4t.onrender.com/calendar")
       .then(res => res.json())
       .then(setCalendar);
   };
@@ -36,7 +36,7 @@ function App() {
     if (!name) return;
 
     await fetch(
-      `http://127.0.0.1:8000/contact?name=${name}&email=${email}`,
+      `https://careops-mf4t.onrender.com/contact?name=${name}&email=${email}`,
       { method: "POST" }
     );
 
@@ -49,7 +49,7 @@ function App() {
   const loadMessages = (id) => {
     setSelected(id);
 
-    fetch(`http://127.0.0.1:8000/messages/${id}`)
+    fetch(`https://careops-mf4t.onrender.com/messages/${id}`)
       .then(res => res.json())
       .then(setMessages);
   };
@@ -59,7 +59,7 @@ function App() {
     if (!reply) return;
 
     await fetch(
-      `http://127.0.0.1:8000/reply?conversation_id=${selected}&content=${reply}`,
+      `https://careops-mf4t.onrender.com/reply?conversation_id=${selected}&content=${reply}`,
       { method: "POST" }
     );
 
@@ -70,7 +70,7 @@ function App() {
   // ---------------- CREATE BOOKING ----------------
   const createBooking = async (contactId) => {
     await fetch(
-      `http://127.0.0.1:8000/booking?contact_id=${contactId}&date=2026-02-20&time=5pm`,
+      `https://careops-mf4t.onrender.com/booking?contact_id=${contactId}&date=2026-02-20&time=5pm`,
       { method: "POST" }
     );
 
